@@ -91,14 +91,14 @@ namespace Domain.Tests
         }
 
         [Test]
-        public void WhenStateNotProvided_ShouldDefaultToAvailable()
+        public void WhenStateNotProvided_ShouldDefaultToInactive()
         {
             // Act
             var result = Device.Create(DeviceData.ValidName, DeviceData.ValidBrand);
 
             // Assert
             result.IsError.Should().BeFalse();
-            result.Value.State.Should().Be(DeviceState.Available);
+            result.Value.State.Should().Be(DeviceState.Inactive);
         }
     }
 }

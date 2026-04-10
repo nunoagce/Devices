@@ -36,4 +36,21 @@ public class UpdateName
         result.Errors.Should().BeEquivalentTo(nameBundle.ExpectedErrors);
         device.Name.Should().Be(initialName);
     }
+
+    [Test]
+    public void WhenDeviceIsInUse_ShouldReturnError()
+    {
+        // Arrange
+        var device = DeviceData.CreateValidDevice(state: DeviceState.InUse);
+        var initialName = device.Name;
+
+        // Act
+        var result = device.UpdateName("NewName");
+
+        // Assert
+        result.IsError.Should().BeTrue();
+        result.Errors.Should().HaveCount(1);
+        result.Errors.First().Should().Be(DeviceErrors.CannotUpdateNameInUse);
+        device.Name.Should().Be(initialName);
+    }
 }

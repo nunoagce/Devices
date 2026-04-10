@@ -10,7 +10,7 @@ public class Device
     public DeviceState State { get; private set; }
     public DateTime CreationTime { get; private init; }
 
-    public static ErrorOr<Device> Create(string name, string brand, DeviceState state = DeviceState.Available)
+    public static ErrorOr<Device> Create(string name, string brand, DeviceState state = DeviceState.Inactive)
     {
         var nameResult = ValidateName(name);
         var brandResult = ValidateBrand(brand);
@@ -34,6 +34,9 @@ public class Device
 
     public ErrorOr<Success> UpdateName(string name)
     {
+        if (State == DeviceState.InUse)
+            return DeviceErrors.CannotUpdateNameInUse;
+
         var result = ValidateName(name);
         if (result.IsError) return result.Errors;
 
@@ -43,6 +46,9 @@ public class Device
 
     public ErrorOr<Success> UpdateBrand(string brand)
     {
+        if (State == DeviceState.InUse)
+            return DeviceErrors.CannotUpdateBrandInUse;
+
         var result = ValidateBrand(brand);
         if (result.IsError) return result.Errors;
 

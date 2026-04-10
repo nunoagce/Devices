@@ -30,4 +30,21 @@ public class UpdateBrand
         result.Errors.Should().BeEquivalentTo(brandBundle.ExpectedErrors);
         device.Brand.Should().Be(originalBrand);
     }
+
+    [Test]
+    public void WhenDeviceIsInUse_ShouldReturnError()
+    {
+        // Arrange
+        var device = DeviceData.CreateValidDevice(state: DeviceState.InUse);
+        var initialBrand = device.Brand;
+
+        // Act
+        var result = device.UpdateBrand("NewBrand");
+
+        // Assert
+        result.IsError.Should().BeTrue();
+        result.Errors.Should().HaveCount(1);
+        result.Errors.First().Should().Be(DeviceErrors.CannotUpdateBrandInUse);
+        device.Brand.Should().Be(initialBrand);
+    }
 }
