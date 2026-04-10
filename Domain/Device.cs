@@ -62,6 +62,16 @@ public class Device
         return Result.Success;
     }
 
+    public ErrorOr<Deleted> Delete()
+    {
+        if (State == DeviceState.InUse)
+        {
+            return DeviceErrors.CannotDeleteInUse;
+        }
+
+        return Result.Deleted;
+    }
+
     private static ErrorOr<Success> ValidateName(string name)
     {
         if (string.IsNullOrWhiteSpace(name))

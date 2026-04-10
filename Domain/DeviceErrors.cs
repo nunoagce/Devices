@@ -23,4 +23,8 @@ public static class DeviceErrors
     public static Error CannotUpdateBrandInUse => Error.Validation(
         code: "Device.CannotUpdateBrandInUse",
         description: "Cannot update brand while device is in use.");
+
+    public static Error CannotDeleteInUse => Error.Validation(
+        code: "Device.CannotDeleteInUse",
+        description: "Cannot delete device while it is in use.");
 }
