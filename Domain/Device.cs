@@ -32,6 +32,30 @@ public class Device
         };
     }
 
+    public ErrorOr<Success> UpdateName(string name)
+    {
+        var result = ValidateName(name);
+        if (result.IsError) return result.Errors;
+
+        Name = name;
+        return Result.Success;
+    }
+
+    public ErrorOr<Success> UpdateBrand(string brand)
+    {
+        var result = ValidateBrand(brand);
+        if (result.IsError) return result.Errors;
+
+        Brand = brand;
+        return Result.Success;
+    }
+
+    public ErrorOr<Success> UpdateState(DeviceState newState)
+    {
+        State = newState;
+        return Result.Success;
+    }
+
     private static ErrorOr<Success> ValidateName(string name)
     {
         if (string.IsNullOrWhiteSpace(name))
