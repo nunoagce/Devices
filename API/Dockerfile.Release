@@ -1,0 +1,14 @@
+# This file ignores the SDK and expects a pre-compiled 'publish' folder
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
+USER $APP_UID
+WORKDIR /app
+
+# Expose ports used by the app
+EXPOSE 8080
+EXPOSE 8081
+
+# Copy the pre-built binaries from the local publish directory
+# This assumes you ran: dotnet publish -o ./publish
+COPY ./publish .
+
+ENTRYPOINT ["dotnet", "API.dll"]

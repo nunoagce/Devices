@@ -10,7 +10,7 @@ services:
   api:
     build:
       context: .
-      dockerfile: API/Dockerfile
+      dockerfile: API/Dockerfile.Release
     ports:
       - "8080:8080"
     environment:
