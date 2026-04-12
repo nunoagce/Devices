@@ -1,6 +1,6 @@
 # Devices
 
-## Debugging
+## How to run the project
 
 ### Option 1: Database in Docker + API in Visual Studio (Development)
 
@@ -15,7 +15,7 @@ Or run the specific database container command for your setup.
 
 2. **Run the API in Visual Studio**
 - Press `F5` or click **Debug > Start Debugging** in Visual Studio
-- The API will typically run on a local port (default: `https://localhost:5001` or `http://localhost:5000`)
+- The API will typically run on a local port (default: `https://localhost:32698`)
 
 3. **Find the API Port**
 - Check the Visual Studio **Debug** output window for the port information
@@ -42,4 +42,4 @@ docker-compose up
    - Select the `release-docker` configuration from the dropdown
    - Execute your HTTP requests
 
-This configuration uses a release mode build and all services run in containers.
+This configuration uses a release mode build and runs in port 8080.
