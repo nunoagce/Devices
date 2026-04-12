@@ -1,6 +1,5 @@
-@API_HostAddress = http://localhost:8080
 
-GET {{API_HostAddress}}/weatherforecast/
+GET {{API_HostAddress}}/devices/
 Accept: application/json
 
 ###

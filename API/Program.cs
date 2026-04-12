@@ -11,9 +11,13 @@ builder.Services
 
 builder.Services
     // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-    .AddOpenApi();
+    .AddOpenApi()
+    .AddApplication()
+    .AddInfrastructure(configuration);
 
 var app = builder.Build();
+
+await app.Services.UseMigrationsAsync(app.Environment.IsDevelopment());
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
