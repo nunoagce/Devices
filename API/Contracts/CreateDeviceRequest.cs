@@ -6,4 +6,4 @@ namespace API.Contracts;
 public record CreateDeviceRequest(
     [Required] string Name,
     [Required] string Brand,
-    [EnumDataType(typeof(DeviceState))] DeviceState? State);
+    [EnumDataType(typeof(State))] State? State);

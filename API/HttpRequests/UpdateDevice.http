@@ -1,0 +1,40 @@
+
+# @name createDevice
+POST {{API_HostAddress}}/devices/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "N-{{$randomInt}}",
+  "brand": "B-{{$randomInt}}",
+  "state": "Available"
+}
+
+###
+
+@newDeviceId = {{createDevice.response.headers.Location}}
+
+### Full Update
+PUT {{newDeviceId}}
+Content-Type: application/json
+
+{
+  "name": "Updated-Name",
+  "brand": "Updated-Brand",
+  "state": "Inactive"
+}
+
+###
+
+### Partial Update - Fixed the URL here
+PUT {{newDeviceId}}
+Content-Type: application/json
+
+{
+  "state": "InUse"
+}
+
+###
+
+GET {{newDeviceId}}
+Accept: application/json

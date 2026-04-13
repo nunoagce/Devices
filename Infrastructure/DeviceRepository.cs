@@ -16,7 +16,7 @@ public class DeviceRepository : IDeviceRepository
 
     public async Task AddAsync(Device value)
     {
-        await _context.Devices.AddAsync(value);
+        await _context.AddAsync(value);
         await _context.SaveChangesAsync();
     }
 
@@ -25,8 +25,14 @@ public class DeviceRepository : IDeviceRepository
         return await _context.Devices.AsNoTracking().ToListAsync();
     }
 
-    public async Task<Device?> GetById(Guid id)
+    public async Task<Device?> GetByIdAsync(Guid id)
     {
         return await _context.Devices.FindAsync(id);
+    }
+
+    public async Task UpdateAsync(Device device)
+    {
+        _context.Update(device);
+        await _context.SaveChangesAsync();
     }
 }
