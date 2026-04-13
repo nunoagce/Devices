@@ -19,9 +19,9 @@ public class DevicesController : ApiController
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAllDevices()
+    public async Task<IActionResult> GetDevices([FromQuery] string? brand, [FromQuery] DeviceState? state)
     {
-        var query = new GetAllDevicesQuery();
+        var query = new GetDevicesQuery(brand, state);
 
         var result = await _sender.Send(query);
 

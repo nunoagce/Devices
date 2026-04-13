@@ -47,7 +47,7 @@ public class CreateDeviceTests : TestBase
         createResult.IsError.Should().BeTrue("because validation should prevent creation");
 
         // Act
-        var getAllQuery = new GetAllDevicesQuery();
+        var getAllQuery = new GetDevicesQuery();
         var getAllResult = await Mediator.Send(getAllQuery);
 
         // Assert

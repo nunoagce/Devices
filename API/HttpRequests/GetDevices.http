@@ -1,0 +1,28 @@
+
+# Create devices to list
+POST {{API_HostAddress}}/devices/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "N-{{$randomInt}}",
+  "brand": "Brand1",
+  "state": "Available"
+}
+
+###
+
+GET {{API_HostAddress}}/devices/
+Accept: application/json
+
+### Get all Brand1 devices
+GET {{API_HostAddress}}/devices?brand=Brand1
+Accept: application/json
+
+### Get all InUse devices
+GET {{API_HostAddress}}/devices?state=InUse
+Accept: application/json
+
+### Combined Brand1 and InUse Filter
+GET {{API_HostAddress}}/devices?brand=Brand1&state=InUse
+Accept: application/json

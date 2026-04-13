@@ -8,7 +8,7 @@ using TestData;
 namespace Application.Tests.Commands;
 
 [TestFixture]
-public class UpdateDevice : TestBase
+public class UpdateDeviceTests : TestBase
 {
     [Test]
     public async Task WhenFullUpdate_ShouldUpdateAllFields()

@@ -1,5 +1,0 @@
-
-GET {{API_HostAddress}}/devices/
-Accept: application/json
-
-###
