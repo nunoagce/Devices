@@ -5,7 +5,8 @@ Content-Type: application/json
 
 {
   "name": "N-{{$randomInt}}",
-  "brand": "B-{{$randomInt}}"
+  "brand": "B-{{$randomInt}}",
+  "state": "Available"
 }
 ###
 

@@ -33,7 +33,7 @@ public class DevicesController : ApiController
     [HttpPost]
     public async Task<IActionResult> CreateDevice(CreateDeviceRequest request)
     {
-        var command = new CreateDeviceCommand(request.Name, request.Brand, request.DeviceState);
+        var command = new CreateDeviceCommand(request.Name, request.Brand, request.State);
 
         var result = await _sender.Send(command);
 

@@ -1,8 +1,9 @@
 ﻿using Domain;
+using System.ComponentModel.DataAnnotations;
 
 namespace API.Contracts;
 
 public record CreateDeviceRequest(
-    string Name,
-    string Brand,
-    DeviceState? DeviceState);
+    [Required] string Name,
+    [Required] string Brand,
+    [EnumDataType(typeof(DeviceState))] DeviceState? State);
