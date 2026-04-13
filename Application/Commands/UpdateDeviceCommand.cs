@@ -8,4 +8,4 @@ public record UpdateDeviceCommand(
     Guid Id,
     string? Name = null,
     string? Brand = null,
-    State? State = null) : IRequest<ErrorOr<Success>>;
+    DeviceState? State = null) : IRequest<ErrorOr<Success>>;

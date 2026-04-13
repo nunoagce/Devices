@@ -22,7 +22,7 @@ public class UpdateDevice : TestBase
             Id: deviceId,
             Name: "Updated Name",
             Brand: "Updated Brand",
-            State: State.InUse);
+            State: DeviceState.InUse);
 
         // Act
         var updateResult = await Mediator.Send(updateCommand);
@@ -37,7 +37,7 @@ public class UpdateDevice : TestBase
         // Assert
         getResult.Value.Name.Should().Be(updateCommand.Name).And.NotBe(createCommand.Name);
         getResult.Value.Brand.Should().Be(updateCommand.Brand).And.NotBe(createCommand.Brand);
-        getResult.Value.State.Should().Be(updateCommand.State).And.NotBe(createCommand.DeviceState);
+        getResult.Value.State.Should().Be(updateCommand.State).And.NotBe(createCommand.State);
     }
 
     [Test]

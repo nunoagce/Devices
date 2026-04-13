@@ -7,10 +7,10 @@ public class Device
     public Guid Id { get; private init; }
     public string Name { get; private set; }
     public string Brand { get; private set; }
-    public State State { get; private set; }
+    public DeviceState State { get; private set; }
     public DateTime CreationTime { get; private init; }
 
-    public static ErrorOr<Device> Create(string name, string brand, State? state = null)
+    public static ErrorOr<Device> Create(string name, string brand, DeviceState? state = null)
     {
         var nameResult = ValidateName(name);
         var brandResult = ValidateBrand(brand);
@@ -27,14 +27,14 @@ public class Device
             Id = Guid.NewGuid(),
             Name = name,
             Brand = brand,
-            State = state ?? State.Inactive,
+            State = state ?? DeviceState.Inactive,
             CreationTime = DateTime.UtcNow
         };
     }
 
     public ErrorOr<Success> UpdateName(string name)
     {
-        if (State == State.InUse)
+        if (State == DeviceState.InUse)
             return DeviceErrors.CannotUpdateNameInUse;
 
         var result = ValidateName(name);
@@ -46,7 +46,7 @@ public class Device
 
     public ErrorOr<Success> UpdateBrand(string brand)
     {
-        if (State == State.InUse)
+        if (State == DeviceState.InUse)
             return DeviceErrors.CannotUpdateBrandInUse;
 
         var result = ValidateBrand(brand);
@@ -56,7 +56,7 @@ public class Device
         return Result.Success;
     }
 
-    public ErrorOr<Success> UpdateState(State newState)
+    public ErrorOr<Success> UpdateState(DeviceState newState)
     {
         State = newState;
         return Result.Success;
@@ -64,7 +64,7 @@ public class Device
 
     public ErrorOr<Deleted> Delete()
     {
-        if (State == State.InUse)
+        if (State == DeviceState.InUse)
         {
             return DeviceErrors.CannotDeleteInUse;
         }

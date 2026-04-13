@@ -8,7 +8,7 @@ public class CreateDeviceHandler(IDeviceRepository repository) : IRequestHandler
 {
     public async Task<ErrorOr<Guid>> Handle(CreateDeviceCommand request, CancellationToken cancellationToken)
     {
-        var createDeviceResult = Device.Create(request.Name, request.Brand, request.DeviceState);
+        var createDeviceResult = Device.Create(request.Name, request.Brand, request.State);
 
         if (createDeviceResult.IsError) return createDeviceResult.Errors;
 

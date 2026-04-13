@@ -7,12 +7,12 @@ public static class DeviceData
 {
     public static readonly string ValidName = NameData.ValidNames.First();
     public static readonly string ValidBrand = BrandData.ValidBrands.First();
-    public const State ValidState = State.Inactive;
+    public const DeviceState ValidState = DeviceState.Inactive;
 
     public static Device CreateValidDevice(
         string? name = null,
         string? brand = null,
-        State? state = null)
+        DeviceState? state = null)
     {
         return Device.Create(
             name ?? ValidName,
@@ -24,7 +24,7 @@ public static class DeviceData
     public static CreateDeviceCommand CreateValidDeviceCommand(
         string? name = null,
         string? brand = null,
-        State? state = null)
+        DeviceState? state = null)
     {
         return new CreateDeviceCommand(
             name ?? ValidName,

@@ -2,6 +2,7 @@
 using Domain;
 using ErrorOr;
 using Microsoft.EntityFrameworkCore;
+using System.Threading;
 
 namespace Infrastructure;
 
@@ -17,6 +18,12 @@ public class DeviceRepository : IDeviceRepository
     public async Task AddAsync(Device value)
     {
         await _context.AddAsync(value);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task RemoveAsync(Device device)
+    {
+        _context.Remove(device);
         await _context.SaveChangesAsync();
     }
 

@@ -1,6 +1,6 @@
 ﻿namespace Domain;
 
-public enum State
+public enum DeviceState
 {
     Available,
     InUse,

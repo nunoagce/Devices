@@ -10,8 +10,8 @@ public class TransitionToState
     public void WhenNewStateIsProvided_ShouldUpdateState()
     {
         // Arrange
-        var initialState = State.Available;
-        var newState = State.InUse;
+        var initialState = DeviceState.Available;
+        var newState = DeviceState.InUse;
         var device = DeviceData.CreateValidDevice(state: initialState);
 
         // Act

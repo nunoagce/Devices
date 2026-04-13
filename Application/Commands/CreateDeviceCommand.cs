@@ -7,4 +7,4 @@ namespace Application.Commands;
 public record CreateDeviceCommand(
     string Name,
     string Brand,
-    State? DeviceState) : IRequest<ErrorOr<Guid>>;
+    DeviceState? State) : IRequest<ErrorOr<Guid>>;

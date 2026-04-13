@@ -98,7 +98,7 @@ namespace Domain.Tests
 
             // Assert
             result.IsError.Should().BeFalse();
-            result.Value.State.Should().Be(State.Inactive);
+            result.Value.State.Should().Be(DeviceState.Inactive);
         }
     }
 }

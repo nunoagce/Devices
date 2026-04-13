@@ -6,5 +6,5 @@ public record DeviceResponse(
     Guid Id,
     string Name,
     string Brand,
-    State State,
+    DeviceState State,
     DateTime CreationTime);

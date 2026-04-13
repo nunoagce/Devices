@@ -41,7 +41,7 @@ public class UpdateBrand
     public void WhenDeviceIsInUse_ShouldReturnError()
     {
         // Arrange
-        var device = DeviceData.CreateValidDevice(state: State.InUse);
+        var device = DeviceData.CreateValidDevice(state: DeviceState.InUse);
         var initialBrand = device.Brand;
 
         // Act

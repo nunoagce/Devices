@@ -11,7 +11,7 @@ public class Delete
     public void WhenStateIsNotInUse_ShouldReturnDeleted()
     {
         // Arrange
-        var device = DeviceData.CreateValidDevice(state: State.Available);
+        var device = DeviceData.CreateValidDevice(state: DeviceState.Available);
 
         // Act
         var result = device.Delete();
@@ -25,7 +25,7 @@ public class Delete
     public void WhenStateIsInUse_ShouldReturnError()
     {
         // Arrange
-        var device = DeviceData.CreateValidDevice(state: State.InUse);
+        var device = DeviceData.CreateValidDevice(state: DeviceState.InUse);
 
         // Act
         var result = device.Delete();

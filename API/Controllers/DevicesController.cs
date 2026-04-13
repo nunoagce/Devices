@@ -70,6 +70,17 @@ public class DevicesController : ApiController
             Problem);
     }
 
+    [HttpDelete("{deviceId:guid}")]
+    public async Task<IActionResult> DeleteDevice(Guid deviceId)
+    {
+        var command = new DeleteDeviceCommand(deviceId);
+        var result = await _sender.Send(command);
+
+        return result.Match(
+            _ => NoContent(),
+            Problem);
+    }
+
     private DeviceResponse ToDto(Device device) =>
         new(device.Id, device.Name, device.Brand, device.State, device.CreationTime);
 }
