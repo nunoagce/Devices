@@ -1,6 +1,6 @@
 ﻿using ErrorOr;
 
-namespace Domain.Tests.Utils;
+namespace TestData.Utils;
 
 public record ErrorBundle<T>(T Value, List<Error> ExpectedErrors)
 {

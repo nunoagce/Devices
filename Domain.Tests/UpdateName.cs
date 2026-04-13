@@ -1,6 +1,6 @@
-﻿using Domain.Tests.Data;
-using Domain.Tests.Utils;
-using FluentAssertions;
+﻿using FluentAssertions;
+using TestData;
+using TestData.Utils;
 
 namespace Domain.Tests;
 

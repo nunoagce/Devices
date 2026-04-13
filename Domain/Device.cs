@@ -10,7 +10,7 @@ public class Device
     public DeviceState State { get; private set; }
     public DateTime CreationTime { get; private init; }
 
-    public static ErrorOr<Device> Create(string name, string brand, DeviceState state = DeviceState.Inactive)
+    public static ErrorOr<Device> Create(string name, string brand, DeviceState? state = null)
     {
         var nameResult = ValidateName(name);
         var brandResult = ValidateBrand(brand);
@@ -27,7 +27,7 @@ public class Device
             Id = Guid.NewGuid(),
             Name = name,
             Brand = brand,
-            State = state,
+            State = state ?? DeviceState.Inactive,
             CreationTime = DateTime.UtcNow
         };
     }

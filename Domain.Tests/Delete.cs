@@ -1,6 +1,6 @@
-﻿using Domain.Tests.Data;
-using ErrorOr;
+﻿using ErrorOr;
 using FluentAssertions;
+using TestData;
 
 namespace Domain.Tests;
 

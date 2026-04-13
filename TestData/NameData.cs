@@ -1,8 +1,9 @@
-﻿using Domain.Tests.Utils;
+﻿using Domain;
+using TestData.Utils;
 
-namespace Domain.Tests.Data;
+namespace TestData;
 
-internal static class NameData
+public static class NameData
 {
     public static readonly StringErrorBundle[] InvalidNames = 
     [

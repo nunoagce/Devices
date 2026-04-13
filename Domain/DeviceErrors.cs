@@ -27,4 +27,8 @@ public static class DeviceErrors
     public static Error CannotDeleteInUse => Error.Validation(
         code: "Device.CannotDeleteInUse",
         description: "Cannot delete device while it is in use.");
+
+    public static Error NotFoundId(Guid id) => Error.NotFound(
+        code: "Device.NotFound",
+        description: $"Device with id {id} was not found.");
 }

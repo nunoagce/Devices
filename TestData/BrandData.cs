@@ -1,10 +1,11 @@
-﻿using Domain.Tests.Utils;
+﻿using Domain;
+using TestData.Utils;
 
-namespace Domain.Tests.Data;
+namespace TestData;
 
-internal static class BrandData
+public static class BrandData
 {
-    internal static readonly StringErrorBundle[] InvalidBrands =
+    public static readonly StringErrorBundle[] InvalidBrands =
     [
         new("", [DeviceErrors.BrandRequired]),
         new(null!, [DeviceErrors.BrandRequired]),
@@ -12,7 +13,7 @@ internal static class BrandData
         new(new string(' ', 15), [DeviceErrors.BrandRequired, DeviceErrors.BrandTooLong]),
     ];
 
-    internal static readonly string[] ValidBrands =
+    public static readonly string[] ValidBrands =
     {
         "Brand Name",
         "A",

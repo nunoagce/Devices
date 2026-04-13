@@ -1,5 +1,5 @@
-﻿using Domain.Tests.Data;
-using FluentAssertions;
+﻿using FluentAssertions;
+using TestData;
 
 namespace Domain.Tests;
 

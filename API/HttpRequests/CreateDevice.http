@@ -1,0 +1,15 @@
+# @name createDevice
+POST {{API_HostAddress}}/devices/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "N-{{$randomInt}}",
+  "brand": "B-{{$randomInt}}"
+}
+###
+
+@newDeviceId = {{createDevice.response.headers.Location}}
+
+GET {{newDeviceId}}
+Accept: application/json
